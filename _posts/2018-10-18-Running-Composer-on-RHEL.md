@@ -80,6 +80,10 @@ the files that have been mirrored, and start up the web server:
     $ chcon -vR -t httpd_sys_content_t /var/www/html/
     $ systemctl start httpd
 
+Also, make sure httpd is accessible from the outside:
+
+    $ sudo firewall-cmd --add-service=http && firewall-cmd --add-service=http --permanent
+
 ## Configure Composer to use the mirrors
 
 Now we install the Composer itself:
